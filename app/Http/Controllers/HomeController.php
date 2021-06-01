@@ -7,7 +7,6 @@
     use App\Post;
     use App\Rubric;
     use App\Tag;
-// use Dotenv\Validator;
     use Illuminate\Support\Facades\DB;
     use Illuminate\Support\Facades\Validator;
     use Illuminate\Support\Facades\Cookie;
@@ -29,9 +28,7 @@
                 Cache::put('posts', $posts);
             }
 
-
             $title = 'Home page';
-
             return view('home', compact('title', 'posts'));
         }
 

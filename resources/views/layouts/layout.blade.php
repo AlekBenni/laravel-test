@@ -62,15 +62,28 @@
           <li>
             <a class="nav-link active" href="{{route('send')}}">Send mail</a>
           </li>
-          <li>
-            <a class="nav-link active" href="{{route('create')}}">Registration</a>
-          </li>
+
+        @auth
+            <li>
+                <a class="nav-link active" href="{{route('logout')}}">Logout</a>
+            </li>
+            <li><a class="nav-link text-info ms-5" href="#">{{ auth()->user()->name }}
+            @if(auth()->user()->avatar)
+            <img class="ms-2" src="{{ asset('storage/' . auth()->user()->avatar) }}" alt="" height="25">
+            @endif
+            </a></li>
+        @endauth
+
+        @guest
+            <li>
+                <a class="nav-link active" href="{{route('create')}}">Registration</a>
+            </li>
+            <li>
+                <a class="nav-link active" href="{{route('login.create')}}">Login</a>
+            </li>
+        @endguest
+
         </ul>
-
-        @php
-            dump(auth()->check())
-        @endphp
-
 
         <form class="d-flex">
           <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">

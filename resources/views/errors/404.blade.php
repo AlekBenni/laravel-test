@@ -12,8 +12,8 @@
     <title>404 error</title>
 </head>
 <body>
-    <div class="alert alert-danger mt-5" role="alert">
-        <h1>{{ $exception->getMessage() }}</h1>
+    <div class="alert alert-danger text-center" role="alert">
+        <h1>404 Page not found</h1>
     </div>
 
 </body>
